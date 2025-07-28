@@ -8,51 +8,57 @@ variable "project_name" {
   description = "Project name"
 }
 variable "nodegroup_name" {
-  type = string
+  type        = string
   description = "Nodegroup name"
 }
 
 variable "eks_cluster_name" {
-  type = string
+  type        = string
   description = "EKS Cluster Name"
 }
 
 variable "public_subnet_ids" {
-  type = list(s)
+  type        = list(string)
   description = "List of Public SubnetIds"
 }
 
 variable "private_subnet_ids" {
-  type = list(s)
+  type        = list(string)
   description = "List of Private SubnetIds"
 }
 
 variable "cluster_version" {
-  type = string
- description ="Kubernetes minor version to use for the EKS cluster (for example 1.21)"
+  type        = string
+  description = "Kubernetes minor version to use for the EKS cluster (for example 1.21)"
 }
 
 variable "ami_type" {
-  type = string
+  type        = string
   description = "Nodegroup AMI Type"
 }
 
 variable "capacity_type" {
-  type = string
+  type        = string
   description = "Capacity Type"
 }
 
 variable "instance_types" {
-  type = list(string)
+  type        = list(string)
   description = "Instance Types"
 }
 
 variable "key_name" {
-  type = string
+  type        = string
   description = "Key name"
 }
 
-variable "create_iam_nodegroup_roles" {
-  type    = bool
-  description = "define nodegroup role create or not"
+variable "iam_nodegroup_role_arn" {
+  type        = string
+  description = "node group role"
 }
+
+variable "public_node_group" {
+  type = bool
+  description = "Nodegroup Public"
+}
+

@@ -4,8 +4,4 @@ locals {
     Environment = "${var.environment}"
     CreatedBy   = "Terraform"
   }
-
-  node_group_subnet = var.public_node_group ? var.public_subnet_ids : var.private_subnet_ids
 }
-
-

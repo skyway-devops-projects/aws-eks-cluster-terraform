@@ -40,23 +40,23 @@ variable "key_name" {
 }
 
 variable "cluster_name" {
-  type = string
+  type        = string
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
 }
 
 variable "cluster_service_ipv4_cidr" {
-description = "service ipv4 cidr for the kubernetes cluster"
-type = string
+  description = "service ipv4 cidr for the kubernetes cluster"
+  type        = string
 }
 
 variable "cluster_version" {
-  type = string
- description ="Kubernetes minor version to use for the EKS cluster (for example 1.21)"
+  type        = string
+  description = "Kubernetes minor version to use for the EKS cluster (for example 1.21)"
 }
 
 variable "cluster_endpoint_private_access" {
-  description =  "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
-  type = bool
+  description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
+  type        = bool
 }
 
 variable "cluster_endpoint_public_access" {
@@ -69,22 +69,37 @@ variable "cluster_endpoint_public_access_cidrs" {
   type        = list(string)
 }
 
-variable "nodegroup_name" {
-  type = string
+variable "public_nodegroup_name" {
+  type        = string
+  description = "NodeGroup"
+}
+
+variable "private_nodegroup_name" {
+  type        = string
   description = "NodeGroup"
 }
 
 variable "ami_type" {
-  type = string
+  type        = string
   description = "Nodegroup AMI Type"
 }
 
 variable "capacity_type" {
-  type = string
+  type        = string
   description = "Capacity Type"
 }
 
 variable "instance_types" {
-  type = list(string)
+  type        = list(string)
   description = "Instance Types"
+}
+
+variable "instance_type_bastion" {
+  type = string
+  description = "bastion host instance type"
+}
+
+variable "allowed_ssh_cidr_blocks" {
+  type = string
+  description = "Allow cidr block bastion host"
 }
